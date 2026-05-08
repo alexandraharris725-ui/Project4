@@ -1,0 +1,255 @@
+
+@font-face {
+  font-family: 'MyPixelFont';
+  src: url('PressStart2P-Regular.ttf') format('truetype');
+}
+
+header {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; 
+    background-color: greenyellow;
+    height: 50px;
+    width: 100%;
+    outline: 2px solid black;
+    
+}
+
+h1 {
+    font-family: 'MyPixelFont', sans-serif;
+    font-size: 20pt;
+    color:yellow;
+    -webkit-text-stroke: 1px orange;
+}
+
+.popup-title {
+    display: flex;
+    font-size: 20pt;
+    width: 100%;
+    color:plum;
+    -webkit-text-stroke: 1px blueviolet;
+    font-family: 'MyPixelFont', sans-serif;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; 
+    background-color: greenyellow;
+    height: 50px;
+    outline: 2px solid black;
+}
+.popup-content {
+    font-family: 'MyPixelFont', sans-serif;
+    padding-top: 20px;
+    padding-left: 10px;
+    width: 95%;
+    
+    /* FIX: Allow wrapping so text doesn't disappear off-screen */
+    white-space: pre-wrap; 
+    word-wrap: break-word;
+    
+    /* Required for Option 2 positioning */
+    position: relative;
+    line-height: 1.5;
+}
+
+#typingText {
+    font-family: 'MyPixelFont', sans-serif;
+    width: 95%;
+    white-space: pre-wrap; /* Keeps your formatting */
+    word-wrap: break-word; /* Prevents overflow */
+    line-height: 1.5;
+    padding-left: 10px;
+    color: black;          /* The color of your typed text */
+}
+
+/* This is the secret sauce */
+.hidden-chars {
+    visibility: hidden;    /* Hidden, but still takes up physical space */
+}
+
+
+
+/* DARK BACKGROUND */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease;
+
+    z-index: 9999;
+}
+
+/* SHOW OVERLAY */
+.popup-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* BOTTOM PANEL */
+.bottom-popup {
+    width: 100%;
+    height: 70vh; /* CUSTOM HEIGHT */
+
+    background: white;
+
+    border: black 2px solid;
+
+
+    box-sizing: border-box;
+
+    transform: translateY(100%);
+    transition: transform 0.35s ease;
+
+    overflow-y: auto;
+
+    position: relative;
+}
+
+/* SLIDE UP */
+.popup-overlay.active .bottom-popup {
+    transform: translateY(0);
+}
+
+
+
+.main-layout {
+  font-family: 'MyPixelFont', sans-serif;
+  display: flex;       /* Arrange children in a row */
+  gap: 20px;           /* Add space between shapes */
+  justify-content: center; /* Center the row on the page */
+  padding: 20px;
+  flex-wrap: wrap;
+  flex: 1;
+  
+
+}
+.navigation-bar li {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.navigation-bar ul {
+    list-style-type: none; /* Removes the bullet points */
+    padding: 0;            /* Removes default browser indentation */
+    margin: 0;             /* Removes default spacing */
+    width: 100%;   
+    text-align: left;
+    position: relative;
+    left:  -6px;
+}
+.navigation-bar a {
+    text-decoration: none;
+    color: inherit;
+    display: block;        /* Makes the whole line clickable */
+    text-align: left;
+}
+
+.navigation-bar {
+  position: fixed;
+  
+  top: 55px;
+  left: -260px; /* Hidden width */
+  height: 300px;
+  width: 250px;
+  min-width: 5px;
+  max-width: 10px;
+  background-color: #ffdf00;
+  outline: 2px solid black;
+  border-radius: 5px;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 20px;
+  z-index: 10000;
+  font-family: 'MyPixelFont', sans-serif;
+}
+
+.trigger-zone {
+  position: fixed;
+  left: 0;
+  top: 55px;
+  bottom: 0;
+  width: 50px; /* Adjust this if you find it hard to trigger */
+  z-index: 9999;
+  background: transparent;
+}
+
+.trigger-zone:hover + .navigation-bar,
+.navigation-bar:hover {
+  left: 0;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+.grid-container {
+  font-family: 'MyPixelFont', sans-serif;
+  display: grid;
+  /* Creates three columns of equal width */
+  grid-template-columns: 1fr 1fr 1fr; 
+  /* Adds space between items */
+  gap: 10px; 
+  padding: 10px;
+}
+
+.grid-item {
+  padding: 20px;
+  text-align: center;
+  cursor: inherit;
+  position: relative;
+  border-radius: 8%;
+  overflow-wrap: break-word;
+  width: 100px;
+  height: 100px;
+  font-size: 14px;
+  white-space: normal;
+  outline: 2px solid black;
+  background-color: greenyellow;
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.grid-item:hover {
+    z-index: 999;
+    transform: scale(1.08) translateY(-5px); /* lift effect */
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+body {
+    cursor: url('cursor.png')16 16, auto;
+    padding: 0;
+    margin: 0;
+    height: calc(100vh - 60px);
+   
+}
+
+
+#bottom-popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Class to show the popup */
+#bottom-popup.show {
+    transform: translateY(0);
+}
+
