@@ -1,0 +1,159 @@
+
+@font-face {
+  font-family: 'MyPixelFont';
+  src: url('/PressStart2P-Regular.ttf') format('truetype');
+}
+
+header {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; 
+    background-color: greenyellow;
+    height: 50px;
+    width: 100%;
+    outline: 2px solid black;
+    
+}
+
+h1 {
+    font-family: 'MyPixelFont', sans-serif;
+    font-size: 20pt;
+    color:#ffdf00;
+    -webkit-text-stroke: 1px #262626;
+}
+
+.navigation-bar li {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.navigation-bar ul {
+    list-style-type: none; /* Removes the bullet points */
+    padding: 0;            /* Removes default browser indentation */
+    margin: 0;             /* Removes default spacing */
+    width: 100%;   
+    text-align: left;
+    position: relative;
+    left:  -6px;
+}
+.navigation-bar img {
+    width: 50px;
+    height: 50px;
+    margin-left: -15px;
+    object-fit: contain;
+
+    display: block;
+
+}
+.navigation-bar a {
+    text-decoration: none;
+    color: inherit;
+    display: block;        /* Makes the whole line clickable */
+    text-align: left;
+}
+
+.navigation-bar {
+  position: fixed;
+  
+  top: 55px;
+  left: -260px; /* Hidden width */
+  height: 300px;
+  width: 250px;
+  min-width: 5px;
+  max-width: 10px;
+  background-color: #ffdf00;
+  outline: 2px solid black;
+  border-radius: 5px;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 20px;
+  z-index: 10000;
+  font-family: 'MyPixelFont', sans-serif;
+}
+
+.trigger-zone {
+  position: fixed;
+  left: 0;
+  top: 55px;
+  bottom: 0;
+  width: 50px; /* Adjust this if you find it hard to trigger */
+  z-index: 9999;
+  background: transparent;
+}
+
+.trigger-zone:hover + .navigation-bar,
+.navigation-bar:hover {
+  left: 0;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+body {
+    cursor: url('cursor.png')16 16, auto;
+    padding: 0;
+    margin: 0;
+    height: calc(100vh - 60px);
+   
+}
+
+.options {
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin: 0 auto; 
+}
+
+.options img {
+  width: 400px;
+  height: auto;
+  display: block;
+
+}
+
+
+.menu,
+.dialogue,
+.settings {
+    position: absolute;
+    width: 400px;
+}
+
+
+.menu {
+    position: relative; 
+    margin-top: -40px;
+}
+
+.dialogue {
+    position: relative;
+    margin-top: -150px;
+
+}
+
+.settings {
+    position: relative;
+    margin-top: -150px;
+}
+
+.text {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Align exactly in the middle */
+  color: black;
+  font-size: 15px;
+  z-index: 10;
+  padding: 10px;
+  font-family: 'MyPixelFont', sans-serif;
+
+}
+
+
+
+
+

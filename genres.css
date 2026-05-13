@@ -21,6 +21,15 @@ h1 {
     color:yellow;
     -webkit-text-stroke: 1px orange;
 }
+.navigation-bar img {
+    width: 50px;
+    height: 50px;
+    margin-left: -15px;
+    object-fit: contain;
+
+    display: block;
+
+}
 
 .popup-title {
     display: flex;

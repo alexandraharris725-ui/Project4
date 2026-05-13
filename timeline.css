@@ -1,0 +1,209 @@
+@font-face {
+  font-family: 'MyPixelFont';
+  src: url('PressStart2P-Regular.ttf') format('truetype');
+}
+
+body {
+    cursor: url('cursor.png')16 16, auto;
+    padding: 0;
+    margin: 0;
+    height: calc(100vh - 60px);
+   background-color: #af5f00;
+}
+.navigation-bar img {
+    width: 50px;
+    height: 50px;
+    margin-left: -15px;
+    object-fit: contain;
+
+    display: block;
+
+}
+
+header {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; 
+    background-color: greenyellow;
+    height: 50px;
+    width: 100%;
+    outline: 2px solid black;
+      position: relative;
+
+}
+
+h1 {
+    font-family: 'MyPixelFont', sans-serif;
+    font-size: 20pt;
+    color:yellow;
+    -webkit-text-stroke: 1px orange;
+}
+
+.navigation-bar li {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.navigation-bar ul {
+    list-style-type: none; /* Removes the bullet points */
+    padding: 0;            /* Removes default browser indentation */
+    margin: 0;             /* Removes default spacing */
+    width: 100%;   
+    text-align: left;
+    position: relative;
+    left:  -6px;
+}
+.navigation-bar a {
+    text-decoration: none;
+    color: inherit;
+    display: block;        /* Makes the whole line clickable */
+    text-align: left;
+}
+
+.navigation-bar {
+  position: fixed;
+  
+  top: 55px;
+  left: -260px; /* Hidden width */
+  height: 300px;
+  width: 250px;
+  min-width: 5px;
+  max-width: 10px;
+  background-color: #ffdf00;
+  outline: 2px solid black;
+  border-radius: 5px;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 20px;
+  z-index: 10000;
+  font-family: 'MyPixelFont', sans-serif;
+}
+
+.trigger-zone {
+  position: fixed;
+  left: 0;
+  top: 55px;
+  bottom: 0;
+  width: 50px; /* Adjust this if you find it hard to trigger */
+  z-index: 9999;
+  background: transparent;
+}
+
+.trigger-zone:hover + .navigation-bar,
+.navigation-bar:hover {
+  left: 0;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+
+
+header::after {
+  content: "";
+  position: absolute;
+  top: 103%; /* Start at bottom of the element */
+  height: 100vh; /* Make it long, or use bottom: 0; */
+  width: 6px;
+  background-color: yellow;
+}
+
+.start{
+ padding: 20px;
+  text-align: center;
+  cursor: inherit;
+  position: relative;
+  font-size: 12px;
+  border-radius: 8%;
+  overflow-wrap: break-word;
+  width: 50px;
+  height: 50px;
+  font-size: 14px;
+  white-space: normal;
+  background-color: greenyellow;
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* TIMELINE */
+
+.timeline {
+    position: relative;
+    width: 100%;
+    padding: 60px 0;
+}
+
+/* Main vertical line */
+.timeline::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 50%;
+
+    width: 6px;
+    background: yellow;
+
+    transform: translateX(-50%);
+}
+
+/* Each timeline row */
+.timeline-item {
+    position: relative;
+    width: 100%;
+    height: 180px;
+}
+
+/* LEFT SIDE BOX */
+.timeline-item.left .start {
+    margin-left: calc(50% - 220px);
+}
+
+/* RIGHT SIDE BOX */
+.timeline-item.right .start {
+    margin-left: calc(50% + 70px);
+}
+
+/* Horizontal connector line */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+
+    top: 50%;
+    width: 70px;
+    height: 6px;
+
+    background: yellow;
+}
+
+/* Left connector */
+.timeline-item.left::before {
+    left: calc(50% - 70px);
+}
+
+/* Right connector */
+.timeline-item.right::before {
+    left: 50%;
+}
+
+/* Improve your boxes */
+.start {
+    width: 150px;
+    height: 100px;
+
+    border: 3px solid black;
+
+    font-family: 'MyPixelFont', sans-serif;
+
+    box-shadow: 5px 5px 0px black;
+}
+
+
+

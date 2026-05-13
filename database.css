@@ -1,0 +1,257 @@
+@font-face {
+  font-family: 'MyPixelFont';
+  src: url('PressStart2P-Regular.ttf') format('truetype');
+}
+
+body {
+    cursor: url('cursor.png')16 16, auto;
+    padding: 0;
+    margin: 0;
+    height: calc(100vh - 60px);
+}
+.navigation-bar img {
+    width: 50px;
+    height: 50px;
+    margin-left: -15px;
+    object-fit: contain;
+
+    display: block;
+
+}
+
+header {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; 
+    background-color: greenyellow;
+    height: 50px;
+    width: 100%;
+    outline: 2px solid black;
+      position: relative;
+
+}
+
+h1 {
+    font-family: 'MyPixelFont', sans-serif;
+    font-size: 20pt;
+    color:yellow;
+    -webkit-text-stroke: 1px orange;
+}
+
+.navigation-bar li {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.navigation-bar ul {
+    list-style-type: none; /* Removes the bullet points */
+    padding: 0;            /* Removes default browser indentation */
+    margin: 0;             /* Removes default spacing */
+    width: 100%;   
+    text-align: left;
+    position: relative;
+    left:  -6px;
+}
+.navigation-bar a {
+    text-decoration: none;
+    color: inherit;
+    display: block;        /* Makes the whole line clickable */
+    text-align: left;
+}
+
+.navigation-bar {
+  position: fixed;
+  
+  top: 55px;
+  left: -260px; /* Hidden width */
+  height: 300px;
+  width: 250px;
+  min-width: 5px;
+  max-width: 10px;
+  background-color: #ffdf00;
+  outline: 2px solid black;
+  border-radius: 5px;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 20px;
+  z-index: 10000;
+  font-family: 'MyPixelFont', sans-serif;
+}
+
+.trigger-zone {
+  position: fixed;
+  left: 0;
+  top: 55px;
+  bottom: 0;
+  width: 50px; /* Adjust this if you find it hard to trigger */
+  z-index: 9999;
+  background: transparent;
+}
+
+.trigger-zone:hover + .navigation-bar,
+.navigation-bar:hover {
+  left: 0;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+.image{
+    outline: solid white 2px;
+    
+}
+.image-gallery img:hover {
+  transform: scale(1.05);
+  
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.image-gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+
+  border-radius: 12px;
+  cursor: pointer;
+
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+.popup-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  display: block;
+  margin: 10px auto;
+}
+
+.popupimg {
+
+    position: absolute;
+    /* Use percentages so it stays on the 'photo frame' of your BG */
+    top: 15%; 
+    left: 6%;
+    width: 45%; 
+    height: 76%; 
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 2px solid #4a3d88;
+}
+.popup-title {
+    display: flex;
+    font-size: 10pt;
+    position: absolute;
+     width: 34%;
+    color:plum;
+    -webkit-text-stroke: 1px blueviolet;
+    font-family: 'MyPixelFont', sans-serif;
+     top: 10%;
+     left: 10%;
+    height: 50px;
+}
+
+.photo {
+    position: absolute;
+    top: 76%;
+    left: -8%;
+    height: 25%;
+    width: 25%;
+}
+.popup-content {
+    font-family: 'MyPixelFont', sans-serif;
+    font-size: 8px;
+    top: 25%;
+    left: 58%;
+    width: 25%;
+    
+    /* FIX: Allow wrapping so text doesn't disappear off-screen */
+    white-space: pre-wrap; 
+    word-wrap: break-word;
+    
+    position: absolute;
+    line-height: 1.5;
+}
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease;
+
+    z-index: 9999;
+}
+
+/* SHOW OVERLAY */
+.popup-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* BOTTOM PANEL */
+.bottom-popup {
+
+
+    width: 100%;
+    height: 70vh; 
+    background-image: url('Menu!info (22).png');
+    /* Use 100% 100% to ensure the image scales exactly with the div */
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative; /* Essential for absolute children */
+    border: black 2px solid;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 0.35s ease;
+    overflow: hidden; /* Usually better for fixed layouts */
+}
+
+
+/* SLIDE UP */
+.popup-overlay.active .bottom-popup {
+    transform: translateY(0);
+}
+#bottom-popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Class to show the popup */
+#bottom-popup.show {
+    transform: translateY(0);
+}
+
+

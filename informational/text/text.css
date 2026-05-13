@@ -1,14 +1,7 @@
+
 @font-face {
   font-family: 'MyPixelFont';
-  src: url('PressStart2P-Regular.ttf') format('truetype');
-}
-
-body {
-    cursor: url('cursor.png')16 16, auto;
-    padding: 0;
-    margin: 0;
-    height: calc(100vh - 60px);
-   
+  src: url('/PressStart2P-Regular.ttf') format('truetype');
 }
 
 header {
@@ -19,15 +12,14 @@ header {
     height: 50px;
     width: 100%;
     outline: 2px solid black;
-      position: relative;
-
+    
 }
 
 h1 {
     font-family: 'MyPixelFont', sans-serif;
     font-size: 20pt;
-    color:yellow;
-    -webkit-text-stroke: 1px orange;
+    color:plum;
+    -webkit-text-stroke: 1px blueviolet;
 }
 
 .navigation-bar li {
@@ -49,6 +41,7 @@ h1 {
     display: block;        /* Makes the whole line clickable */
     text-align: left;
 }
+
 .navigation-bar img {
     width: 50px;
     height: 50px;
@@ -101,78 +94,62 @@ h1 {
   cursor: pointer;
 }
 
-.options {
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; 
-  gap: 10px;
-  font-family: 'MyPixelFont', sans-serif;
-  font-size: 10px;
-  text-align: center;
-  align-content: center;
+body {
+    cursor: url('cursor.png')16 16, auto;
+    padding: 0;
+    margin: 0;
+    height: calc(100vh - 60px);
+   
 }
 
-.options a {
-    text-decoration: none;
-    color: black;
+.talk {
+    margin: 0;
+
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
+    justify-content: center;
+    align-items: flex-end; 
+}
+.talking {
+  position: relative;
+             /* inside chat box now */
+
+  font-family: 'MyPixelFont', sans-serif;
+  font-size: 9px;
+
+  width: 240px;              /* fixed chat-safe width */
+  padding-top: 235px;
+  padding-left: 64px;
+
+  white-space: normal;       /* allows next line */
+  overflow-wrap: break-word; /* wraps words properly */
+  
+  overflow: hidden;
+
 }
 
-.options img {
-    width: 200px;
-    height: 100px;
-    margin-bottom: 30px;
+
+.chat {
+    
+    height: 300px;
+  width: 500px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5px;
+
+  overflow: hidden;   /* IMPORTANT */
 }
 
-#menu {
+.talk img.pipe {
     position: fixed;
+    width: 400px;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    color: white;
-    padding: 20px;
+    left: 50%;
 
-    transform: translateY(100%);
-    transition: transform 0.3s ease-in-out;
-}
-
-/* ACTIVE STATE */
-#menu.active {
-    transform: translateY(0);
-}
-
-#typingText {
-    font-family: 'MyPixelFont', sans-serif;
-    width: 95%;
-    white-space: pre-wrap; /* Keeps your formatting */
-    word-wrap: break-word; /* Prevents overflow */
-    line-height: 1.5;
-    padding-left: 10px;
-    color: black;          /* The color of your typed text */
-}
-
-/* This is the secret sauce */
-.hidden-chars {
-    visibility: hidden;    /* Hidden, but still takes up physical space */
+    transform: translateX(-50%);
 }
 
 
-
-
-
-
-
-.menu-item {
-    padding: 5px;
-    display: grid;
-    font-family: 'MyPixelFont', sans-serif;
-    font-size: 10px;
-    text-align: center;
-}
 
 
 
