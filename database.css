@@ -174,18 +174,19 @@ h1 {
     width: 25%;
 }
 .popup-content {
-    font-family: 'MyPixelFont', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     font-size: 10px;
     top: 25%;
     left: 58%;
     width: 25%;
-    
+    color: plum;    
     /* FIX: Allow wrapping so text doesn't disappear off-screen */
     white-space: pre-wrap; 
     word-wrap: break-word;
     
     position: absolute;
     line-height: 1.5;
+
 }
 .popup-overlay {
     position: fixed;
