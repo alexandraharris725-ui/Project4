@@ -113,20 +113,20 @@ body {
              /* inside chat box now */
 
   font-family: 'MyPixelFont', sans-serif;
-  font-size: 9px;
+  font-size: 12px;
 
 
  position: fixed;
   /* Use hard PX values only */
-  bottom: 190px; 
+  bottom: 256px; 
   
-  width: 240px;
+  width: 295px;
 
   left: 50%;
   transform: translateX(-50%);
   
   /* Reset these to ensure no inherited movement */
-  margin-left: -85px;
+  margin-left: -110px;
   transform: none;
   
 }
@@ -135,18 +135,18 @@ body {
 .chat {
     
     height: 300px;
-  width: 500px;
+  width: 700px;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 5px;
+  bottom: 90px;
 
   overflow: hidden;   /* IMPORTANT */
 }
 
 .talk img.pipe {
     position: absolute;
-    width: 400px;
+    width: 700px;
     bottom: 0;
     left: 50%;
 
