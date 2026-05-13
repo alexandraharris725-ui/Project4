@@ -108,22 +108,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end; 
+    
 }
 .talking {
-  position: relative;
              /* inside chat box now */
 
   font-family: 'MyPixelFont', sans-serif;
   font-size: 9px;
 
-  width: 240px;              /* fixed chat-safe width */
-  padding-top: 235px;
-  padding-left: 64px;
 
-  white-space: normal;       /* allows next line */
-  overflow-wrap: break-word; /* wraps words properly */
+ position: absolute;
+  /* Use hard PX values only */
+  top: 205px; 
   
-  overflow: hidden;
+  width: 240px;
+
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* Reset these to ensure no inherited movement */
+  margin-left: -80px;
+  transform: none;
 
 }
 
@@ -141,7 +146,7 @@ body {
 }
 
 .talk img.pipe {
-    position: fixed;
+    position: absolute;
     width: 400px;
     bottom: 0;
     left: 50%;
