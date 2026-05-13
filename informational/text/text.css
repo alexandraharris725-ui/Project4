@@ -117,9 +117,9 @@ body {
   font-size: 9px;
 
 
- position: absolute;
+ position: fixed;
   /* Use hard PX values only */
-  top: 205px; 
+  bottom: 180px; 
   
   width: 240px;
 
@@ -127,9 +127,9 @@ body {
   transform: translateX(-50%);
   
   /* Reset these to ensure no inherited movement */
-  margin-left: -80px;
+  margin-left: -85px;
   transform: none;
-
+  
 }
 
 
