@@ -139,6 +139,15 @@ header::after {
     padding: 60px 0;
 }
 
+.start img.controller{
+    
+    height: 200px;
+}
+
+.arcade {
+    position: relative;
+}
+
 /* Main vertical line */
 .timeline::before {
     content: "";
